@@ -1,0 +1,361 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "c9edf129-7754-493c-b479-cba258d4f055",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "26e33e29-d2b5-4fa0-a41b-69be0e94ffad": {
+        "position": {
+          "x": 1108,
+          "y": 16.8
+        },
+        "children": [
+          "16b410f3-a792-482f-accb-320217c2aadf"
+        ],
+        "overrideConsoleVoice": false,
+        "fragments": {
+          "SetContactData": "16b410f3-a792-482f-accb-320217c2aadf"
+        },
+        "overrideLanguageAttribute": true
+      },
+      "16b410f3-a792-482f-accb-320217c2aadf": {
+        "position": {
+          "x": 1108,
+          "y": 16.8
+        },
+        "dynamicParams": []
+      },
+      "c9edf129-7754-493c-b479-cba258d4f055": {
+        "position": {
+          "x": 232,
+          "y": 20.8
+        }
+      },
+      "752d1ff3-bda7-436f-85bd-fc32f49abdf3": {
+        "position": {
+          "x": 512,
+          "y": 0.8
+        },
+        "parameters": {
+          "QueueId": {
+            "displayName": "BasicQueue"
+          }
+        },
+        "queue": {
+          "text": "BasicQueue"
+        }
+      },
+      "00de09e8-068b-431f-adfa-a8e9f8c77632": {
+        "position": {
+          "x": 788.8,
+          "y": 0.8
+        },
+        "parameters": {
+          "Attributes": {
+            "ani": {
+              "useDynamic": true
+            },
+            "dnis": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "ani",
+          "dnis"
+        ]
+      },
+      "3a4e08cc-9101-4532-8f80-04865ec82c84": {
+        "position": {
+          "x": 662.4,
+          "y": 312
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "xyz-getDnisConfig"
+          },
+          "LambdaInvocationAttributes": {
+            "dnis": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "dnis": true
+        }
+      },
+      "3b944050-60ea-461c-afc8-6641b3831ed9": {
+        "position": {
+          "x": 973.6,
+          "y": 231.2
+        },
+        "parameters": {
+          "Attributes": {
+            "canOfferSpanish": {
+              "useDynamic": true
+            },
+            "destinationType": {
+              "useDynamic": true
+            },
+            "greeting": {
+              "useDynamic": true
+            },
+            "lob": {
+              "useDynamic": true
+            },
+            "secret": {
+              "useDynamic": true
+            },
+            "startFlow": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "canOfferSpanish",
+          "destinationType",
+          "greeting",
+          "lob",
+          "secret",
+          "startFlow"
+        ]
+      },
+      "5494e854-0227-4585-a5ff-7f55b991c6c7": {
+        "position": {
+          "x": 974.4,
+          "y": 499.2
+        },
+        "dynamicParams": []
+      },
+      "dfeb70bc-80ff-4927-812c-8d52242f6bca": {
+        "position": {
+          "x": 1310.4,
+          "y": 392
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "displayName": "globalMessages"
+          }
+        },
+        "ContactFlow": {
+          "text": "globalMessages"
+        }
+      },
+      "1f97f6ff-c37b-4aa6-8e4f-4c4f011755bc": {
+        "position": {
+          "x": 1596.8,
+          "y": 406.4
+        }
+      }
+    },
+    "Annotations": [
+      {
+        "type": "default",
+        "id": "fba47940-e436-4d59-8368-909e90255cf4",
+        "content": "if error occurs in lambda, default dnis configuration settings would be applied here \n\ncould also set default dnis configurations in lambda if error occurs or record not found",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1185,
+          "y": 850
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "bdb978e7-eb20-4c22-839f-00c1d35eb1e6",
+        "content": "globa secret can be implemented like xyz secret and user defined arn set here instead of referencing flowname directly",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1644,
+          "y": 684
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      }
+    ],
+    "name": "incomingCall",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "TextToSpeechVoice": "Joanna"
+      },
+      "Identifier": "26e33e29-d2b5-4fa0-a41b-69be0e94ffad",
+      "Type": "UpdateContactTextToSpeechVoice",
+      "Transitions": {
+        "NextAction": "16b410f3-a792-482f-accb-320217c2aadf"
+      }
+    },
+    {
+      "Parameters": {
+        "LanguageCode": "en-US"
+      },
+      "Identifier": "16b410f3-a792-482f-accb-320217c2aadf",
+      "Type": "UpdateContactData",
+      "Transitions": {
+        "NextAction": "3a4e08cc-9101-4532-8f80-04865ec82c84",
+        "Errors": [
+          {
+            "NextAction": "3a4e08cc-9101-4532-8f80-04865ec82c84",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "c9edf129-7754-493c-b479-cba258d4f055",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "752d1ff3-bda7-436f-85bd-fc32f49abdf3"
+      }
+    },
+    {
+      "Parameters": {
+        "QueueId": "arn:aws:connect:us-west-2:442042506434:instance/78866e89-f887-42c5-8984-296d5c7a951e/queue/96c16967-63a9-4b1d-9f1e-996e4ad6ba5c"
+      },
+      "Identifier": "752d1ff3-bda7-436f-85bd-fc32f49abdf3",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "00de09e8-068b-431f-adfa-a8e9f8c77632",
+        "Errors": [
+          {
+            "NextAction": "00de09e8-068b-431f-adfa-a8e9f8c77632",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "incomingCall flow",
+          "ani": "$.CustomerEndpoint.Address",
+          "dnis": "$.SystemEndpoint.Address",
+          "language": "english"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "00de09e8-068b-431f-adfa-a8e9f8c77632",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "26e33e29-d2b5-4fa0-a41b-69be0e94ffad",
+        "Errors": [
+          {
+            "NextAction": "26e33e29-d2b5-4fa0-a41b-69be0e94ffad",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-west-2:442042506434:function:xyz-getDnisConfig",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "dnis": "$.SystemEndpoint.Address"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "3a4e08cc-9101-4532-8f80-04865ec82c84",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "3b944050-60ea-461c-afc8-6641b3831ed9",
+        "Errors": [
+          {
+            "NextAction": "5494e854-0227-4585-a5ff-7f55b991c6c7",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "canOfferSpanish": "$.External.canOfferSpanish",
+          "destinationType": "$.External.destinationType",
+          "greeting": "$.External.greeting",
+          "lob": "$.External.lob",
+          "secret": "$.External.secret",
+          "startFlow": "$.External.startFlow"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "3b944050-60ea-461c-afc8-6641b3831ed9",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "dfeb70bc-80ff-4927-812c-8d52242f6bca",
+        "Errors": [
+          {
+            "NextAction": "dfeb70bc-80ff-4927-812c-8d52242f6bca",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "canOfferSpanish": "defaultSetting",
+          "destinationType": "defaultSetting",
+          "greeting": "defaultSetting",
+          "lob": "defaultSetting",
+          "secret": "defaultSetting",
+          "startFlow": "defaultSetting"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "5494e854-0227-4585-a5ff-7f55b991c6c7",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "dfeb70bc-80ff-4927-812c-8d52242f6bca",
+        "Errors": [
+          {
+            "NextAction": "dfeb70bc-80ff-4927-812c-8d52242f6bca",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "arn:aws:connect:us-west-2:442042506434:instance/78866e89-f887-42c5-8984-296d5c7a951e/contact-flow/1f56b64e-c606-487a-a832-2fa439c6789b"
+      },
+      "Identifier": "dfeb70bc-80ff-4927-812c-8d52242f6bca",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "1f97f6ff-c37b-4aa6-8e4f-4c4f011755bc",
+        "Errors": [
+          {
+            "NextAction": "1f97f6ff-c37b-4aa6-8e4f-4c4f011755bc",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "1f97f6ff-c37b-4aa6-8e4f-4c4f011755bc",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    }
+  ]
+}

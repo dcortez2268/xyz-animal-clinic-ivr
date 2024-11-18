@@ -1,0 +1,385 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "6895bade-7f14-48ea-8a87-bea07925e5bc",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "8f61c2f9-f4dd-427a-a192-0a816a8135d1": {
+        "position": {
+          "x": 2012,
+          "y": 364
+        },
+        "parameters": {
+          "Text": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "61e7177d-b444-42c6-ad20-88cceb9eca59": {
+        "position": {
+          "x": 2302.4,
+          "y": 407.2
+        }
+      },
+      "6895bade-7f14-48ea-8a87-bea07925e5bc": {
+        "position": {
+          "x": 221.6,
+          "y": 7.2
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey"
+        ]
+      },
+      "64468c7a-1893-49b7-b940-4205a4d8e2ed": {
+        "position": {
+          "x": 487.2,
+          "y": 4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          }
+        },
+        "dynamicMetadata": {
+          "flow": false
+        },
+        "useDynamic": true
+      },
+      "17d62633-3100-4b81-aef4-6f796c5a44fe": {
+        "position": {
+          "x": 778.4,
+          "y": 3.2
+        },
+        "dynamicParams": []
+      },
+      "eb1768c1-5a3c-40fe-96a3-1ea129013712": {
+        "position": {
+          "x": 1064.8,
+          "y": -6.4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          },
+          "LambdaInvocationAttributes": {
+            "transferFlag": {
+              "useDynamic": true
+            },
+            "lob": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "transferFlag": true,
+          "lob": true
+        },
+        "useDynamic": true
+      },
+      "23806d98-c673-4ba1-9456-4143c3234fe5": {
+        "position": {
+          "x": 1360.8,
+          "y": 0.8
+        },
+        "parameters": {
+          "Attributes": {
+            "queueConfigs": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "queueConfigs"
+        ]
+      },
+      "67d475ca-56a1-42fe-a30f-1a3f3b83ea06": {
+        "position": {
+          "x": 2303.2,
+          "y": 7.2
+        }
+      },
+      "7bb9f219-9e7c-4653-8295-a900fbc7a6b6": {
+        "position": {
+          "x": 1664,
+          "y": -11.2
+        }
+      },
+      "fd6bc37d-b143-4332-a516-3115709d44a7": {
+        "position": {
+          "x": 2002.4,
+          "y": 4.8
+        },
+        "parameters": {
+          "EventHooks": {
+            "CustomerQueue": {
+              "useDynamic": true
+            }
+          }
+        },
+        "useDynamic": true,
+        "customerOrAgent": true
+      }
+    },
+    "Annotations": [
+      {
+        "type": "default",
+        "id": "b056e4b2-6394-4af8-a090-b613c8d72880",
+        "content": "set prompts here",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 932,
+          "y": -348
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "3baeb0d8-57b7-4d8d-9124-521a1bc6ced6",
+        "content": "set queue configs here",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1647,
+          "y": -354
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "ce3122e0-e4ad-4028-8ef2-271efe52d134",
+        "content": "set prompt that says thank you for calling but no one is availabel. good bye",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 2476,
+          "y": 713
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      }
+    ],
+    "name": "xyz_transfer",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "Text": "$.Attributes.transferPrompt"
+      },
+      "Identifier": "8f61c2f9-f4dd-427a-a192-0a816a8135d1",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "61e7177d-b444-42c6-ad20-88cceb9eca59",
+        "Errors": [
+          {
+            "NextAction": "61e7177d-b444-42c6-ad20-88cceb9eca59",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "61e7177d-b444-42c6-ad20-88cceb9eca59",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | xyz_transfer"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "6895bade-7f14-48ea-8a87-bea07925e5bc",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "64468c7a-1893-49b7-b940-4205a4d8e2ed",
+        "Errors": [
+          {
+            "NextAction": "64468c7a-1893-49b7-b940-4205a4d8e2ed",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.fetchPrompt",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "flow": "xyz_accountAuth"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "64468c7a-1893-49b7-b940-4205a4d8e2ed",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "17d62633-3100-4b81-aef4-6f796c5a44fe",
+        "Errors": [
+          {
+            "NextAction": "17d62633-3100-4b81-aef4-6f796c5a44fe",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "prompts": "prompts"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "17d62633-3100-4b81-aef4-6f796c5a44fe",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "eb1768c1-5a3c-40fe-96a3-1ea129013712",
+        "Errors": [
+          {
+            "NextAction": "eb1768c1-5a3c-40fe-96a3-1ea129013712",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.getQueueConfig",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "transferFlag": "$.Attributes.transferFlag",
+          "lob": "$.Attributes.lob"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "eb1768c1-5a3c-40fe-96a3-1ea129013712",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "23806d98-c673-4ba1-9456-4143c3234fe5",
+        "Errors": [
+          {
+            "NextAction": "23806d98-c673-4ba1-9456-4143c3234fe5",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "queueConfigs": "$.External.queueConfigs"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "23806d98-c673-4ba1-9456-4143c3234fe5",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "7bb9f219-9e7c-4653-8295-a900fbc7a6b6",
+        "Errors": [
+          {
+            "NextAction": "7bb9f219-9e7c-4653-8295-a900fbc7a6b6",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "67d475ca-56a1-42fe-a30f-1a3f3b83ea06",
+      "Type": "TransferContactToQueue",
+      "Transitions": {
+        "NextAction": "61e7177d-b444-42c6-ad20-88cceb9eca59",
+        "Errors": [
+          {
+            "NextAction": "61e7177d-b444-42c6-ad20-88cceb9eca59",
+            "ErrorType": "QueueAtCapacity"
+          },
+          {
+            "NextAction": "61e7177d-b444-42c6-ad20-88cceb9eca59",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "7bb9f219-9e7c-4653-8295-a900fbc7a6b6",
+      "Type": "CheckHoursOfOperation",
+      "Transitions": {
+        "NextAction": "8f61c2f9-f4dd-427a-a192-0a816a8135d1",
+        "Conditions": [
+          {
+            "NextAction": "fd6bc37d-b143-4332-a516-3115709d44a7",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "True"
+              ]
+            }
+          },
+          {
+            "NextAction": "8f61c2f9-f4dd-427a-a192-0a816a8135d1",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "False"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "8f61c2f9-f4dd-427a-a192-0a816a8135d1",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "EventHooks": {
+          "CustomerQueue": "$.Attributes.queue"
+        }
+      },
+      "Identifier": "fd6bc37d-b143-4332-a516-3115709d44a7",
+      "Type": "UpdateContactEventHooks",
+      "Transitions": {
+        "NextAction": "67d475ca-56a1-42fe-a30f-1a3f3b83ea06",
+        "Errors": [
+          {
+            "NextAction": "67d475ca-56a1-42fe-a30f-1a3f3b83ea06",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

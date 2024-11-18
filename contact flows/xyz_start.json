@@ -1,0 +1,321 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "2450c94a-7678-49fe-98de-99a13e389892",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "0b3a2875-39f7-41df-8ea3-f5cd43e442d8": {
+        "position": {
+          "x": 1404.8,
+          "y": 229.6
+        },
+        "parameters": {
+          "Attributes": {
+            "nextFlow": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "nextFlow"
+        ]
+      },
+      "30a1db83-1cdc-4367-a425-fc102f8935ed": {
+        "position": {
+          "x": 2043.2,
+          "y": 267.2
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "ab77fcc0-284b-4d13-a879-8541609b2146": {
+        "position": {
+          "x": 2387.2,
+          "y": 294.4
+        }
+      },
+      "2450c94a-7678-49fe-98de-99a13e389892": {
+        "position": {
+          "x": 188.8,
+          "y": 14.4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "xyz-fetchARN"
+          },
+          "LambdaInvocationAttributes": {
+            "secret": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "secret": true
+        }
+      },
+      "55fb0629-2538-4a82-a1f9-d3f49a69a638": {
+        "position": {
+          "x": 716.8,
+          "y": 16
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          }
+        },
+        "dynamicMetadata": {
+          "flow": false
+        },
+        "useDynamic": true
+      },
+      "725103c8-6563-4e84-ac31-38c507f5bc1e": {
+        "position": {
+          "x": 450.4,
+          "y": 14.4
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            },
+            "xyz_MainMenu": {
+              "useDynamic": true
+            },
+            "xyz_aniAuth": {
+              "useDynamic": true
+            },
+            "xyz-aniLookup": {
+              "useDynamic": true
+            },
+            "getSsnBot": {
+              "useDynamic": true
+            },
+            "xyz_accountAuth": {
+              "useDynamic": true
+            },
+            "xyz_authEnd": {
+              "useDynamic": true
+            },
+            "xyz_billingSupport": {
+              "useDynamic": true
+            },
+            "xyz_scheduleAppointment": {
+              "useDynamic": true
+            },
+            "transfer": {
+              "useDynamic": true
+            },
+            "xyz-authenticateCustomer": {
+              "useDynamic": true
+            },
+            "getQueueConfig": {
+              "useDynamic": true
+            },
+            "xyz_makePayment": {
+              "useDynamic": true
+            },
+            "getAccountBot": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey",
+          "xyz_MainMenu",
+          "xyz_aniAuth",
+          "xyz-aniLookup",
+          "getSsnBot",
+          "xyz_accountAuth",
+          "xyz_authEnd",
+          "xyz_billingSupport",
+          "xyz_scheduleAppointment",
+          "transfer",
+          "xyz-authenticateCustomer",
+          "getQueueConfig",
+          "xyz_makePayment",
+          "getAccountBot"
+        ]
+      }
+    },
+    "Annotations": [
+      {
+        "type": "default",
+        "id": "62008c06-bde3-43b5-93d5-06fe265b18db",
+        "content": "this block sets all arns for the rest of IVR for lex bots, flows, lambdas",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 537,
+          "y": -324
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "070439e6-342f-4a76-be9d-c5202e2083a4",
+        "content": "to do: \nimplement unauthenticated menu options here so clients can perform some unauthenticated funcitonalities in ivr without being forced to agent if they are looking for info they do not need to be authenticated for",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1353,
+          "y": -262
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "8ce4644e-8091-48e2-97bf-e4b8d419adae",
+        "content": "to do:\nwill add predictive intent module here and query db  via ani",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 2110,
+          "y": -5
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      }
+    ],
+    "name": "xyz_start",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "Attributes": {
+          "nextFlow": "$.Attributes.xyz_MainMenu"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "0b3a2875-39f7-41df-8ea3-f5cd43e442d8",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "30a1db83-1cdc-4367-a425-fc102f8935ed",
+        "Errors": [
+          {
+            "NextAction": "30a1db83-1cdc-4367-a425-fc102f8935ed",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.xyz_aniAuth"
+      },
+      "Identifier": "30a1db83-1cdc-4367-a425-fc102f8935ed",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "ab77fcc0-284b-4d13-a879-8541609b2146",
+        "Errors": [
+          {
+            "NextAction": "ab77fcc0-284b-4d13-a879-8541609b2146",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "ab77fcc0-284b-4d13-a879-8541609b2146",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-west-2:442042506434:function:xyz-fetchARN",
+        "InvocationTimeLimitSeconds": "3",
+        "LambdaInvocationAttributes": {
+          "secret": "$.Attributes.secret"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "2450c94a-7678-49fe-98de-99a13e389892",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "725103c8-6563-4e84-ac31-38c507f5bc1e",
+        "Errors": [
+          {
+            "NextAction": "725103c8-6563-4e84-ac31-38c507f5bc1e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.fetchPrompt",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "flow": "xyz_start"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "55fb0629-2538-4a82-a1f9-d3f49a69a638",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "0b3a2875-39f7-41df-8ea3-f5cd43e442d8",
+        "Errors": [
+          {
+            "NextAction": "0b3a2875-39f7-41df-8ea3-f5cd43e442d8",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | xyz_start flow",
+          "xyz_MainMenu": "$.External.xyz_MainMenu",
+          "xyz_aniAuth": "$.External.xyz_aniAuth",
+          "xyz-aniLookup": "$.External.xyz-aniLookup",
+          "getSsnBot": "$.External.getSsnBot",
+          "xyz_accountAuth": "$.External.xyz_accountAuth",
+          "xyz_authEnd": "$.External.xyz_authEnd",
+          "xyz_billingSupport": "$.External.xyz_billingSupport",
+          "xyz_scheduleAppointment": "$.External.xyz_scheduleAppointment",
+          "transfer": "$.External.transfer",
+          "xyz-authenticateCustomer": "$.External.xyz-authenticateCustomer",
+          "getQueueConfig": "$.External.getQueueConfig",
+          "xyz_makePayment": "$.External.xyz_makePayment",
+          "getAccountBot": "$.External.getAccountBot"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "725103c8-6563-4e84-ac31-38c507f5bc1e",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "55fb0629-2538-4a82-a1f9-d3f49a69a638",
+        "Errors": [
+          {
+            "NextAction": "55fb0629-2538-4a82-a1f9-d3f49a69a638",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

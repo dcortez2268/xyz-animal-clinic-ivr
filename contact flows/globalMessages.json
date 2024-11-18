@@ -1,0 +1,309 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "d0f210a1-12e3-453b-9e9e-7771a0efc6fc",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "1d8dc00b-7058-411a-82b3-4bbfddbe5bf8": {
+        "position": {
+          "x": 763.2,
+          "y": 4.8
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          },
+          "LambdaInvocationAttributes": {
+            "lob": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "flow": false,
+          "lob": true
+        },
+        "useDynamic": true
+      },
+      "675371c2-cdd0-45d1-a0e7-86c2ca9fcfc6": {
+        "position": {
+          "x": 442.4,
+          "y": 8
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            },
+            "fetchPrompt": {
+              "useDynamic": true
+            },
+            "startFlow": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey",
+          "fetchPrompt",
+          "startFlow"
+        ]
+      },
+      "d0f210a1-12e3-453b-9e9e-7771a0efc6fc": {
+        "position": {
+          "x": 189.6,
+          "y": 2.4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "xyz-fetchARN"
+          },
+          "LambdaInvocationAttributes": {
+            "secret": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "secret": true
+        }
+      },
+      "cd2b7b2f-f266-45c4-82fc-b2627f56e828": {
+        "position": {
+          "x": 1051.2,
+          "y": 6.4
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "3a40fcc6-c347-4bce-8c91-8737ab6f24a4",
+            "operator": {
+              "name": "Contains",
+              "value": "Contains",
+              "shortDisplay": "contains"
+            },
+            "value": "<speak>"
+          }
+        ]
+      },
+      "88f85ac4-93dd-49f3-a3cb-e25496df07de": {
+        "position": {
+          "x": 1335.2,
+          "y": 12.8
+        },
+        "parameters": {
+          "PromptId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "63c652e8-77ec-4844-9b0c-6aa78bff9426": {
+        "position": {
+          "x": 1712,
+          "y": 412
+        }
+      },
+      "6937fad6-37f9-40c1-9646-8a366c82d8a9": {
+        "position": {
+          "x": 1036.8,
+          "y": 363.2
+        },
+        "parameters": {
+          "SSML": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "f7d5997b-fce3-463c-997c-5e751e147d37": {
+        "position": {
+          "x": 1437.6,
+          "y": 389.6
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      }
+    },
+    "Annotations": [
+      {
+        "type": "default",
+        "id": "2b671688-201b-46b4-98c8-4214a30eedd6",
+        "content": "to do: \nrename function to 'fetchARN' since it is global function and not owned by xyz lob",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 215,
+          "y": -360
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      }
+    ],
+    "name": "globalMessages",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.fetchPrompt",
+        "InvocationTimeLimitSeconds": "3",
+        "LambdaInvocationAttributes": {
+          "flow": "globalMessages",
+          "lob": "$.Attributes.lob"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "1d8dc00b-7058-411a-82b3-4bbfddbe5bf8",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "cd2b7b2f-f266-45c4-82fc-b2627f56e828",
+        "Errors": [
+          {
+            "NextAction": "cd2b7b2f-f266-45c4-82fc-b2627f56e828",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | globalMessages flow",
+          "fetchPrompt": "$.External.fetchPrompt",
+          "startFlow": "$.External.startFlow"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "675371c2-cdd0-45d1-a0e7-86c2ca9fcfc6",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "1d8dc00b-7058-411a-82b3-4bbfddbe5bf8",
+        "Errors": [
+          {
+            "NextAction": "1d8dc00b-7058-411a-82b3-4bbfddbe5bf8",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-west-2:442042506434:function:xyz-fetchARN",
+        "InvocationTimeLimitSeconds": "3",
+        "LambdaInvocationAttributes": {
+          "secret": "$.Attributes.secret"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "d0f210a1-12e3-453b-9e9e-7771a0efc6fc",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "675371c2-cdd0-45d1-a0e7-86c2ca9fcfc6",
+        "Errors": [
+          {
+            "NextAction": "675371c2-cdd0-45d1-a0e7-86c2ca9fcfc6",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.External.globalMessages_01"
+      },
+      "Identifier": "cd2b7b2f-f266-45c4-82fc-b2627f56e828",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "6937fad6-37f9-40c1-9646-8a366c82d8a9",
+        "Conditions": [
+          {
+            "NextAction": "88f85ac4-93dd-49f3-a3cb-e25496df07de",
+            "Condition": {
+              "Operator": "TextContains",
+              "Operands": [
+                "<speak>"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "6937fad6-37f9-40c1-9646-8a366c82d8a9",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "PromptId": "$.External.globalMessages_01"
+      },
+      "Identifier": "88f85ac4-93dd-49f3-a3cb-e25496df07de",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "6937fad6-37f9-40c1-9646-8a366c82d8a9",
+        "Errors": [
+          {
+            "NextAction": "6937fad6-37f9-40c1-9646-8a366c82d8a9",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "63c652e8-77ec-4844-9b0c-6aa78bff9426",
+      "Type": "EndFlowExecution",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "SSML": "$.External.greeting"
+      },
+      "Identifier": "6937fad6-37f9-40c1-9646-8a366c82d8a9",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "f7d5997b-fce3-463c-997c-5e751e147d37",
+        "Errors": [
+          {
+            "NextAction": "f7d5997b-fce3-463c-997c-5e751e147d37",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.startFlow"
+      },
+      "Identifier": "f7d5997b-fce3-463c-997c-5e751e147d37",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "63c652e8-77ec-4844-9b0c-6aa78bff9426",
+        "Errors": [
+          {
+            "NextAction": "63c652e8-77ec-4844-9b0c-6aa78bff9426",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

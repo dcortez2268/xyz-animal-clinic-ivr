@@ -1,0 +1,659 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "d2907568-7616-44ad-872b-c3f6c373079e",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "18376a1e-e156-4373-b6c2-835c6fed5efd": {
+        "position": {
+          "x": 2440.8,
+          "y": -64
+        },
+        "parameters": {
+          "Attributes": {
+            "authenticationStatus": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "authenticationStatus"
+        ]
+      },
+      "b944dd01-22a6-4e79-8416-995d489a9ec8": {
+        "position": {
+          "x": 3006.4,
+          "y": 360.8
+        }
+      },
+      "d3a61199-15fd-4917-94c7-3be6eec46573": {
+        "position": {
+          "x": 2724,
+          "y": 331.2
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "13c84fe5-a4ad-4133-968f-93beb3e17b3c": {
+        "position": {
+          "x": 934.4,
+          "y": 358.4
+        },
+        "parameters": {
+          "SSML": {
+            "useDynamic": true
+          },
+          "LexV2Bot": {
+            "AliasArn": {
+              "useDynamic": true
+            }
+          }
+        },
+        "useDynamicLexBotArn": true,
+        "lexV2BotName": "",
+        "useDynamic": true,
+        "conditionMetadata": [
+          {
+            "id": "8b4520c7-03c6-45aa-baf0-03d7e18bfc00",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "verifyAccount"
+          },
+          {
+            "id": "78b01bfa-cf09-4511-8355-7db23fc799d3",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "FallbackIntent"
+          }
+        ]
+      },
+      "f6ca690e-a6a2-4d46-b9ae-3501d1629166": {
+        "position": {
+          "x": 940,
+          "y": 676.8
+        }
+      },
+      "e7fa77fb-1245-4091-aaef-07af0cc5f86a": {
+        "position": {
+          "x": 1270.4,
+          "y": -324
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "a17dc46f-cd1c-45a4-8139-5cc122fdf89b": {
+        "position": {
+          "x": 1569.6,
+          "y": -304
+        }
+      },
+      "b0fa1422-3650-4b6c-8019-1db78f5dc2dd": {
+        "position": {
+          "x": 2128.8,
+          "y": 76.8
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "69966e18-64cb-4782-8dba-811e43c3a911",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "f3cab6e1-6153-48d1-9e84-ccd10f05b72b": {
+        "position": {
+          "x": 1657.6,
+          "y": 695.2
+        }
+      },
+      "e6bcea71-2971-4bcf-ad76-855b7cf6e36d": {
+        "position": {
+          "x": 1279.2,
+          "y": 395.2
+        },
+        "parameters": {
+          "Attributes": {
+            "accountNumber": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "accountNumber"
+        ]
+      },
+      "0c9a7673-eeb3-43c3-8eb8-43c125e2b7b2": {
+        "position": {
+          "x": 1828,
+          "y": 70.4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          },
+          "LambdaInvocationAttributes": {
+            "accountNumber": {
+              "useDynamic": true
+            },
+            "ssn": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "accountNumber": true,
+          "ssn": true
+        },
+        "useDynamic": true
+      },
+      "159c4f64-4875-4364-aa5e-8d5a6aa65d98": {
+        "position": {
+          "x": 1656.8,
+          "y": 348.8
+        },
+        "parameters": {
+          "SSML": {
+            "useDynamic": true
+          },
+          "LexV2Bot": {
+            "AliasArn": {
+              "useDynamic": true
+            }
+          }
+        },
+        "useDynamicLexBotArn": true,
+        "lexV2BotName": "",
+        "useDynamic": true,
+        "conditionMetadata": [
+          {
+            "id": "5edc31e2-280d-4dea-8893-237a4beeaaf6",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "verifySsn"
+          },
+          {
+            "id": "ee9ed3ae-91ab-4d43-8bf4-3ae932efb325",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "FallbackIntent"
+          }
+        ]
+      },
+      "d2907568-7616-44ad-872b-c3f6c373079e": {
+        "position": {
+          "x": 193.6,
+          "y": 17.6
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey"
+        ]
+      },
+      "cab2811c-a7b4-45db-ab40-6886a62286ba": {
+        "position": {
+          "x": 1028.8,
+          "y": 17.6
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "f305bc30-558b-4473-bce3-cf4102b09319",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "31f0edcb-2eb6-4a9f-9ade-cf368cf7209b": {
+        "position": {
+          "x": 475.2,
+          "y": 16.8
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          }
+        },
+        "dynamicMetadata": {
+          "flow": false
+        },
+        "useDynamic": true
+      },
+      "set prompts": {
+        "position": {
+          "x": 753.6,
+          "y": 17.6
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "Attributes": {
+            "xyz_accountAuth_01": {
+              "useDynamic": true
+            },
+            "xyz_accountAuth_02": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "xyz_accountAuth_01",
+          "xyz_accountAuth_02"
+        ]
+      }
+    },
+    "Annotations": [],
+    "name": "xyz_accountAuth",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "Attributes": {
+          "authenticationStatus": "$.External.authenticationStatus",
+          "authenticationMethod": "accountNumber"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "18376a1e-e156-4373-b6c2-835c6fed5efd",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+        "Errors": [
+          {
+            "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "b944dd01-22a6-4e79-8416-995d489a9ec8",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.xyz_authEnd"
+      },
+      "Identifier": "d3a61199-15fd-4917-94c7-3be6eec46573",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "b944dd01-22a6-4e79-8416-995d489a9ec8",
+        "Errors": [
+          {
+            "NextAction": "b944dd01-22a6-4e79-8416-995d489a9ec8",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "SSML": "$.Attributes.xyz_accountAuth_01",
+        "LexV2Bot": {
+          "AliasArn": "$.Attributes.getAccountBot"
+        }
+      },
+      "Identifier": "13c84fe5-a4ad-4133-968f-93beb3e17b3c",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "f6ca690e-a6a2-4d46-b9ae-3501d1629166",
+        "Conditions": [
+          {
+            "NextAction": "e6bcea71-2971-4bcf-ad76-855b7cf6e36d",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "verifyAccount"
+              ]
+            }
+          },
+          {
+            "NextAction": "f6ca690e-a6a2-4d46-b9ae-3501d1629166",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "FallbackIntent"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "f6ca690e-a6a2-4d46-b9ae-3501d1629166",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "f6ca690e-a6a2-4d46-b9ae-3501d1629166",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LoopCount": "2"
+      },
+      "Identifier": "f6ca690e-a6a2-4d46-b9ae-3501d1629166",
+      "Type": "Loop",
+      "Transitions": {
+        "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+        "Conditions": [
+          {
+            "NextAction": "13c84fe5-a4ad-4133-968f-93beb3e17b3c",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.xyz_authEnd"
+      },
+      "Identifier": "e7fa77fb-1245-4091-aaef-07af0cc5f86a",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "a17dc46f-cd1c-45a4-8139-5cc122fdf89b",
+        "Errors": [
+          {
+            "NextAction": "a17dc46f-cd1c-45a4-8139-5cc122fdf89b",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "a17dc46f-cd1c-45a4-8139-5cc122fdf89b",
+      "Type": "EndFlowExecution",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.External.authenticationStatus"
+      },
+      "Identifier": "b0fa1422-3650-4b6c-8019-1db78f5dc2dd",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+        "Conditions": [
+          {
+            "NextAction": "18376a1e-e156-4373-b6c2-835c6fed5efd",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LoopCount": "2"
+      },
+      "Identifier": "f3cab6e1-6153-48d1-9e84-ccd10f05b72b",
+      "Type": "Loop",
+      "Transitions": {
+        "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+        "Conditions": [
+          {
+            "NextAction": "159c4f64-4875-4364-aa5e-8d5a6aa65d98",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "d3a61199-15fd-4917-94c7-3be6eec46573",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "accountNumber": "$.Lex.SessionAttributes.accountNumber"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "e6bcea71-2971-4bcf-ad76-855b7cf6e36d",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "159c4f64-4875-4364-aa5e-8d5a6aa65d98",
+        "Errors": [
+          {
+            "NextAction": "159c4f64-4875-4364-aa5e-8d5a6aa65d98",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.xyz-authenticateCustomer",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "accountNumber": "$.Attributes.accountNumber",
+          "ssn": "$.Lex.SessionAttributes.SSN"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "0c9a7673-eeb3-43c3-8eb8-43c125e2b7b2",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "b0fa1422-3650-4b6c-8019-1db78f5dc2dd",
+        "Errors": [
+          {
+            "NextAction": "b0fa1422-3650-4b6c-8019-1db78f5dc2dd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "SSML": "$.Attributes.xyz_accountAuth_02",
+        "LexV2Bot": {
+          "AliasArn": "$.Attributes.getSsnBot"
+        }
+      },
+      "Identifier": "159c4f64-4875-4364-aa5e-8d5a6aa65d98",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "f3cab6e1-6153-48d1-9e84-ccd10f05b72b",
+        "Conditions": [
+          {
+            "NextAction": "0c9a7673-eeb3-43c3-8eb8-43c125e2b7b2",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "verifySsn"
+              ]
+            }
+          },
+          {
+            "NextAction": "f3cab6e1-6153-48d1-9e84-ccd10f05b72b",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "FallbackIntent"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "f3cab6e1-6153-48d1-9e84-ccd10f05b72b",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "f3cab6e1-6153-48d1-9e84-ccd10f05b72b",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | xyz_accountAuth"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "d2907568-7616-44ad-872b-c3f6c373079e",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "31f0edcb-2eb6-4a9f-9ade-cf368cf7209b",
+        "Errors": [
+          {
+            "NextAction": "31f0edcb-2eb6-4a9f-9ade-cf368cf7209b",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.authenticationStatus"
+      },
+      "Identifier": "cab2811c-a7b4-45db-ab40-6886a62286ba",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "13c84fe5-a4ad-4133-968f-93beb3e17b3c",
+        "Conditions": [
+          {
+            "NextAction": "e7fa77fb-1245-4091-aaef-07af0cc5f86a",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "13c84fe5-a4ad-4133-968f-93beb3e17b3c",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.fetchPrompt",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "flow": "xyz_accountAuth"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "31f0edcb-2eb6-4a9f-9ade-cf368cf7209b",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "set prompts",
+        "Errors": [
+          {
+            "NextAction": "set prompts",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "xyz_accountAuth_01": "$.External.xyz_accountAuth_01",
+          "xyz_accountAuth_02": "$.External.xyz_accountAuth_02"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "set prompts",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "cab2811c-a7b4-45db-ab40-6886a62286ba",
+        "Errors": [
+          {
+            "NextAction": "cab2811c-a7b4-45db-ab40-6886a62286ba",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

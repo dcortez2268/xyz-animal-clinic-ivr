@@ -1,0 +1,310 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "b193c7d9-182a-4f47-9260-f40f7ec77fb5",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "56b3e7bc-e970-4966-81b3-aac2d501e59d": {
+        "position": {
+          "x": 1472.8,
+          "y": 10.4
+        },
+        "parameters": {
+          "PromptId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "f1d3204d-2162-432e-9507-f5bd99106037": {
+        "position": {
+          "x": 1766.4,
+          "y": 16.8
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey"
+        ]
+      },
+      "c3b314df-aa5c-4a94-a3a4-3190467df9cf": {
+        "position": {
+          "x": 2072.8,
+          "y": 35.2
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "b193c7d9-182a-4f47-9260-f40f7ec77fb5": {
+        "position": {
+          "x": 200.8,
+          "y": 9.6
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey"
+        ]
+      },
+      "0db30494-a608-4097-a860-2c4289048622": {
+        "position": {
+          "x": 465.6,
+          "y": 4.8
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          }
+        },
+        "dynamicMetadata": {
+          "flow": false
+        },
+        "useDynamic": true
+      },
+      "set prompts": {
+        "position": {
+          "x": 768,
+          "y": 12.8
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "Attributes": {
+            "xyz_authEnd_01": {
+              "useDynamic": true
+            },
+            "xyz_authEnd_02": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "xyz_authEnd_01",
+          "xyz_authEnd_02"
+        ]
+      },
+      "907457f4-cd51-4944-8817-78fec9a444ec": {
+        "position": {
+          "x": 1840.8,
+          "y": -464
+        }
+      },
+      "1cb5defa-83b7-4b7a-b35d-27b7cfeb2009": {
+        "position": {
+          "x": 1090.4,
+          "y": 6.4
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "f39be405-d001-40fb-b4ed-12b0689a7ca2",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "19a97c8e-bc8e-4185-a16a-d7feef10cd52": {
+        "position": {
+          "x": 1412,
+          "y": -477.6
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      }
+    },
+    "Annotations": [],
+    "name": "xyz_authEnd",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "PromptId": "$.Attributes.xyz_aniAuth_02"
+      },
+      "Identifier": "56b3e7bc-e970-4966-81b3-aac2d501e59d",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "f1d3204d-2162-432e-9507-f5bd99106037",
+        "Errors": [
+          {
+            "NextAction": "f1d3204d-2162-432e-9507-f5bd99106037",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | failed authentication"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "f1d3204d-2162-432e-9507-f5bd99106037",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "c3b314df-aa5c-4a94-a3a4-3190467df9cf",
+        "Errors": [
+          {
+            "NextAction": "c3b314df-aa5c-4a94-a3a4-3190467df9cf",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.transfer"
+      },
+      "Identifier": "c3b314df-aa5c-4a94-a3a4-3190467df9cf",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "907457f4-cd51-4944-8817-78fec9a444ec",
+        "Errors": [
+          {
+            "NextAction": "907457f4-cd51-4944-8817-78fec9a444ec",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | xyz_authEnd"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "b193c7d9-182a-4f47-9260-f40f7ec77fb5",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "0db30494-a608-4097-a860-2c4289048622",
+        "Errors": [
+          {
+            "NextAction": "0db30494-a608-4097-a860-2c4289048622",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.fetchPrompt",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "flow": "xyz_authEnd"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "0db30494-a608-4097-a860-2c4289048622",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "set prompts",
+        "Errors": [
+          {
+            "NextAction": "set prompts",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "xyz_authEnd_01": "$.External.xyz_authEnd_01",
+          "xyz_authEnd_02": "$.External.xyz_authEnd_02"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "set prompts",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "1cb5defa-83b7-4b7a-b35d-27b7cfeb2009",
+        "Errors": [
+          {
+            "NextAction": "1cb5defa-83b7-4b7a-b35d-27b7cfeb2009",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "907457f4-cd51-4944-8817-78fec9a444ec",
+      "Type": "EndFlowExecution",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.authenticationStatus"
+      },
+      "Identifier": "1cb5defa-83b7-4b7a-b35d-27b7cfeb2009",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "56b3e7bc-e970-4966-81b3-aac2d501e59d",
+        "Conditions": [
+          {
+            "NextAction": "19a97c8e-bc8e-4185-a16a-d7feef10cd52",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "56b3e7bc-e970-4966-81b3-aac2d501e59d",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.xyz_MainMenu"
+      },
+      "Identifier": "19a97c8e-bc8e-4185-a16a-d7feef10cd52",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "907457f4-cd51-4944-8817-78fec9a444ec",
+        "Errors": [
+          {
+            "NextAction": "907457f4-cd51-4944-8817-78fec9a444ec",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

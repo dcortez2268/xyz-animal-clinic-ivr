@@ -1,0 +1,237 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "632d8354-a47a-4381-8418-35b49d843e07",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "3c8e7746-4004-4233-b028-9d2ac51ae7f0": {
+        "position": {
+          "x": 1939.2,
+          "y": 281.6
+        }
+      },
+      "632d8354-a47a-4381-8418-35b49d843e07": {
+        "position": {
+          "x": 119.2,
+          "y": 232.8
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey"
+        ]
+      },
+      "5e71a546-221d-4b79-b02f-7e19da43d9ed": {
+        "position": {
+          "x": 384.8,
+          "y": 229.6
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "useDynamic": true
+          }
+        },
+        "dynamicMetadata": {
+          "flow": false
+        },
+        "useDynamic": true
+      },
+      "set prompts": {
+        "position": {
+          "x": 686.4,
+          "y": 236
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "Attributes": {
+            "xyz_MainMenu_01": {
+              "useDynamic": true
+            },
+            "xyz_MainMenu_02": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "xyz_MainMenu_01",
+          "xyz_MainMenu_02"
+        ]
+      },
+      "e0701b15-174f-4f1e-bbcc-85cff4a5d30c": {
+        "position": {
+          "x": 1669.6,
+          "y": 256.8
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "72f727e8-d529-4bfd-a732-8e3bb2f0238a": {
+        "position": {
+          "x": 1041.6,
+          "y": 233.6
+        },
+        "parameters": {
+          "PromptId": {
+            "useDynamic": true
+          }
+        },
+        "useDynamic": true
+      },
+      "87372dd2-6730-4992-ad0f-e8ce770ca075": {
+        "position": {
+          "x": 1347.2,
+          "y": 222.4
+        },
+        "parameters": {
+          "Attributes": {
+            "journey": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "journey"
+        ]
+      }
+    },
+    "Annotations": [],
+    "name": "xyz_MainMenu",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {},
+      "Identifier": "3c8e7746-4004-4233-b028-9d2ac51ae7f0",
+      "Type": "EndFlowExecution",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | xyz_MainMenu flow"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "632d8354-a47a-4381-8418-35b49d843e07",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "5e71a546-221d-4b79-b02f-7e19da43d9ed",
+        "Errors": [
+          {
+            "NextAction": "5e71a546-221d-4b79-b02f-7e19da43d9ed",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "$.Attributes.fetchPrompt",
+        "InvocationTimeLimitSeconds": "8",
+        "LambdaInvocationAttributes": {
+          "flow": "xyz_MainMenu"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "5e71a546-221d-4b79-b02f-7e19da43d9ed",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "set prompts",
+        "Errors": [
+          {
+            "NextAction": "set prompts",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "xyz_MainMenu_01": "$.External.xyz_MainMenu_01",
+          "xyz_MainMenu_02": "$.External.xyz_MainMenu_02"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "set prompts",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "72f727e8-d529-4bfd-a732-8e3bb2f0238a",
+        "Errors": [
+          {
+            "NextAction": "72f727e8-d529-4bfd-a732-8e3bb2f0238a",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "$.Attributes.transfer"
+      },
+      "Identifier": "e0701b15-174f-4f1e-bbcc-85cff4a5d30c",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "3c8e7746-4004-4233-b028-9d2ac51ae7f0",
+        "Errors": [
+          {
+            "NextAction": "3c8e7746-4004-4233-b028-9d2ac51ae7f0",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "PromptId": "$.Attributes.xyz_MainMenu_01"
+      },
+      "Identifier": "72f727e8-d529-4bfd-a732-8e3bb2f0238a",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "87372dd2-6730-4992-ad0f-e8ce770ca075",
+        "Errors": [
+          {
+            "NextAction": "87372dd2-6730-4992-ad0f-e8ce770ca075",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "journey": "$.Attributes.$.Attributes.journey | failed authentication"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "87372dd2-6730-4992-ad0f-e8ce770ca075",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "e0701b15-174f-4f1e-bbcc-85cff4a5d30c",
+        "Errors": [
+          {
+            "NextAction": "e0701b15-174f-4f1e-bbcc-85cff4a5d30c",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}
